@@ -9,8 +9,4 @@ router.route('/flowers/:comname').delete(flowers.deleteFlower);
 router.route('/flowers').get(flowers.listFlowers); 
 router.param('comname', flowers.setCommonName);
 
-// router.route('/locations').get(listings.listLocations)
-// router.route('/sightings').post(listings.addSighting)
-// router.route('/flowers/:comname').put(listings.update)
-
 module.exports = router;

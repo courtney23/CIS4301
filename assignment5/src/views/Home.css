@@ -1,0 +1,25 @@
+ .bg {
+    background-image: url("../assets/background.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align:center;
+    background-attachment: fixed;
+    background-color: black;
+    background-blend-mode: screen;
+    }
+
+    .text{
+        /* position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center; */
+        font-family: 'Lato', sans-serif;
+        color: rgb(28, 43, 23);
+        font-size: 4vw;
+        text-align: center;
+        padding-top: 20%;
+    }
+     

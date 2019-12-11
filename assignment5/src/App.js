@@ -6,6 +6,7 @@ import { Route, Switch, Redirect  } from 'react-router-dom';
 
 import Header from "./components/Header.js"
 import Home from "./views/Home.js"
+import Flowers from "./views/Flowers.js"
 
 function App(){
   return (
@@ -13,7 +14,11 @@ function App(){
     <Header />
 
     <Switch>
+        <Route exact path ="/">
+            <Redirect to="/Home" />
+        </Route>
         <Route exact path="/Home" component={Home} />
+        <Route exact path="/Flowers" component={Flowers} />
         </Switch>
     </div>
   );

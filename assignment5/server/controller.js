@@ -55,16 +55,16 @@ exports.deleteFlower = function (req, res) {
     });
 };
 
-exports.listFlowers = function (req, res) {
-    DB.all(`SELECT * FROM FLOWERS`, (err, row) => {
-        if (err) {
-            res.status(400).send(err);
-        } else {
-            res.send(row);
-        }
-    });
-    console.log(res);
-};
+// exports.listFlowers = function (req, res) {
+//     DB.all(`SELECT * FROM FLOWERS`, (err, row) => {
+//         if (err) {
+//             res.status(400).send(err);
+//         } else {
+//             res.send(row);
+//         }
+//     });
+//     console.log(res);
+// };
 
 exports.setCommonName = function (req, res, next, comname) {
     req.comname = comname;

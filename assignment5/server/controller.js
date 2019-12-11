@@ -1,4 +1,4 @@
-var DB = require('./db.js');
+var DB = require('../server/db');
 
 exports.create = function (req, res) {
     var flowers = new DB(req.body);
@@ -16,7 +16,7 @@ exports.create = function (req, res) {
 exports.displaySightings = function (req, res) {
     var comname = req.comname;
 
-    Database.all(`SELECT * FROM sightings
+    DB.all(`SELECT * FROM sightings
                  WHERE name = "${comname}"
                  ORDER BY sighted DESC
                  LIMIT 10;`,
@@ -35,7 +35,7 @@ exports.updateFlower = function (req, res) {
     var genus = req.body.genus;
     var species = req.body.species;
 
-    Database.run(`UPDATE FLOWERS
+    DB.run(`UPDATE FLOWERS
                   SET GENUS = "${genus}", SPECIES = "${species}"
                   WHERE COMNAME = "${comname}";`, (err) => {
         if (err) {
@@ -49,21 +49,21 @@ exports.updateFlower = function (req, res) {
 exports.deleteFlower = function (req, res) {
     var flowers = req.flowers;
 
-    Database.findByIdAndRemove(flowers._id, function (err, results) {
+    DB.findByIdAndRemove(flowers._id, function (err, results) {
         if (err) throw err;
         res.send(results);
     });
 };
 
 exports.listFlowers = function (req, res) {
-
-    Database.all(`SELECT * FROM FLOWERS`, (err, row) => {
+    DB.all(`SELECT * FROM FLOWERS`, (err, row) => {
         if (err) {
             res.status(400).send(err);
         } else {
             res.send(row);
         }
     });
+    console.log(res);
 };
 
 exports.setCommonName = function (req, res, next, comname) {

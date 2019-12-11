@@ -4,7 +4,7 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     router = require('./routes.js');
-    controller = require("./controller.js"),
+    controller = require("./controller"),
 
 module.exports.init = function() {
   var app = express();
@@ -30,7 +30,7 @@ app.get("/api/displaySightings", function (req, res) {
 
 //exports.updateFlower from controller 
 app.post("/api/updateFlower", function (req, res) {
-    controller.updatFlower(req, res);
+    controller.updateFlower(req, res);
 }); 
 
 //exports.deleteFlower from controller 

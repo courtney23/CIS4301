@@ -1,6 +1,11 @@
 const sqlite3 = require('sqlite3').verbose();
 
-let db = new sqlite3.Database('./flowers2019.db', (err) => {
+const path = require('path')
+const dbPath = path.resolve(__dirname, 'flowers2019.db')
+// const db = new sqlite3.Database(dbPath)
+
+let db = new sqlite3.Database(dbPath, (err) => {
+// let db = new sqlite3.Database('/flowers2019.db', (err) => {
     if (err){
         console.error(err.message);
     }
@@ -14,7 +19,7 @@ db.serialize(() => {
                  if (err){
                      console.error(err.message);
                  }
-                 console.log( row.name);
+                 console.log(row);
              });
 });
 

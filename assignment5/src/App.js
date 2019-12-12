@@ -2,28 +2,31 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, Switch, Redirect  } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 import Header from "./components/Header.js"
 import Home from "./views/Home.js"
 import Flowers from "./views/Flowers.js"
 import Sightings from "./views/Sightings.js"
 
-function App(){
-  return (
-    <div className="App">
-    <Header />
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <Header />
 
-    <Switch>
-        <Route exact path ="/">
+        <Switch>
+          <Route exact path="/">
             <Redirect to="/Home" />
-        </Route>
-        <Route exact path="/Home" component={Home} />
-        <Route exact path="/Flowers" component={Flowers} />
-        <Route exact path="/Sightings" component={Sightings} />
+          </Route>
+          <Route exact path="/Home" component={Home} />
+          <Route exact path="/Flowers" component={Flowers} />
+          <Route exact path="/Sightings" component={Sightings} />
         </Switch>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,21 +1,23 @@
 import React from 'react';
 
-
 class Flowers extends React.Component {
     constructor(props){
 		super(props);
 		this.state = {
 			genus: '',
 			species: '',
-			comname: ''
+            comname: '',
 		};
+
 
 		this.handleGenusChange = this.handleGenusChange.bind(this);
         this.handleSpeciesChange = this.handleSpeciesChange.bind(this);
         this.handleComnameChange = this.handleComnameChange.bind(this);
 
         this.handleSubmit = this.handleSubmit.bind(this);
-	}
+    }
+
+
 
 	handleGenusChange(event){
 		this.setState({name: event.target.value});
